@@ -2,10 +2,15 @@
   "name": "chai_backend7",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "javascript,backend"
+
+    "test": "nodemon src/index.js"
   },
   "author": "purvbhuva",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
