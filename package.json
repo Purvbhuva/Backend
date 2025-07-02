@@ -1,0 +1,11 @@
+{
+  "name": "chai_backend7",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "javascript,backend"
+  },
+  "author": "purvbhuva",
+  "license": "ISC",
+  "description": ""
+}
