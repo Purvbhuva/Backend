@@ -15,9 +15,10 @@
 import dotenv from "dotenv"
 
 import mongoose from 'mongoose'
-//here we nned to give ./constants.js because it give error 
+//here we need to give ./constants.js because it give error 
 import { DB_NAME } from './constants.js'
 import connectDB from './db/index.js'
+import { app } from "./app.js"
 
 
 dotenv.config({
@@ -25,8 +26,26 @@ dotenv.config({
 })
 
 
+// here we write async method for connectDB
+//has aync method is complete it give us a promise 
+//which where handle .then . catch this are optional but for good practice
 
 connectDB()
+.then(()=>{
+
+    //optional app.on use  for error only
+    app.on('ERROR',()=>{
+        console.log("Error In Server:!!!",Error);        
+    })
+
+    app.listen(process.env.PORT ||8000,()=>{
+        console.log(`server is runnig at port : ${process.env.PORT}`);        
+    })
+})
+.catch((error)=>{
+    console.log("Mongo db connection failed !!!",error);
+    
+})
 
 
 
@@ -61,8 +80,8 @@ const app = express()
 
 //another way to connect Db is 
 
-//this is we called has if e
-//meaning it will execute the fun imedtealy
+//this is we called has if-e
+//meaning it will execute the function imedtealy
 //eg
 // function dbConnection(){
 //     try{
